@@ -32,9 +32,11 @@ $shipping_slug      = $product->get_shipping_class();
 $has_fast_delivery  = ($shipping_slug && strpos($shipping_slug, 'fast') !== false)
     || has_term('fast-delivery', 'product_tag', $product_id)
     || get_post_meta($product_id, '_giftshop_fast_delivery', true) === 'yes';
-$is_luxury          = has_term('luxury', 'product_cat', $product_id);
-$is_economic        = has_term('economic', 'product_cat', $product_id) || has_term('budget-friendly', 'product_cat', $product_id);
+$is_luxury          = giftshop_is_luxury_product($product_id);
+$is_economic        = giftshop_is_economic_product($product_id);
+$is_bestseller      = (int) $product->get_total_sales() >= 10;
 $tagline            = has_excerpt($product_id) ? wp_trim_words(get_the_excerpt(), 24, '…') : 'باکسی از احساسات خوب برای کسی که دوستش دارید';
+$story              = get_post_meta($product_id, 'giftshop_story', true);
 ?>
 
 <article id="product-<?php the_ID(); ?>" <?php wc_product_class('pdp', $product); ?>>
@@ -52,9 +54,17 @@ $tagline            = has_excerpt($product_id) ? wp_trim_words(get_the_excerpt()
                 <div class="pdp__eyebrow">
                     <?php if ($is_luxury) : ?><span class="badge badge--luxury">لاکچری</span><?php endif; ?>
                     <?php if ($is_economic) : ?><span class="badge badge--economic">اقتصادی و به‌صرفه</span><?php endif; ?>
+                    <?php if ($is_bestseller) : ?><span class="badge badge--bestseller">پرفروش</span><?php endif; ?>
+                    <?php if ($product->is_on_sale()) : ?><span class="badge badge--sale">تخفیف</span><?php endif; ?>
                 </div>
                 <h1 class="pdp__title"><?php the_title(); ?></h1>
                 <p class="pdp__subtitle"><?php echo esc_html($tagline); ?></p>
+
+                <?php if (!empty($story)) : ?>
+                    <div class="pdp__story" role="note">
+                        <p><?php echo esc_html($story); ?></p>
+                    </div>
+                <?php endif; ?>
 
                 <div class="pdp__pricing">
                     <?php woocommerce_template_single_rating(); ?>
