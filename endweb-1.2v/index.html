@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="فروشگاه آنلاین مکمل‌های ورزشی MSH Supplement - بهترین مکمل‌ها برای رسیدن به اهداف ورزشی شما. پروتئین، کراتین، گینر و بیشتر."
+    />
+    <title>فروشگاه مکمل‌های ورزشی MSH Supplement</title>
+    <link rel="stylesheet" href="css/bootstrap.rtl.min.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm"
+    >
+      <div class="container">
+        <h1 class="navbar-brand fw-bold mb-0 fs-4">
+          <a
+            class="text-decoration-none"
+            href="index.html"
+            style="color: #f1c40f"
+            >MSH Supplement</a
+          >
+        </h1>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="agent.html"
+                >دستیار</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html"
+                >خانه</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="products.html">محصولات</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdownCategories"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                دسته‌بندی‌ها
+              </a>
+              <ul
+                class="dropdown-menu"
+                aria-labelledby="navbarDropdownCategories"
+              >
+                <li>
+                  <a class="dropdown-item" href="products.html?category=whey"
+                    >پروتئین وی</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="products.html?category=creatine"
+                    >کراتین</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="products.html?category=gainer"
+                    >گینر</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="products.html?category=amino"
+                    >آمینو اسید</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="products.html?category=vitamin"
+                    >ویتامین</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="products.html"
+                    >همه دسته‌بندی‌ها</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">درباره ما</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">تماس با ما</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="cart.html" title="سبد خرید">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="badge bg-danger ms-1" id="cart-count">0</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html" title="ورود / ثبت‌نام">
+                <i class="fas fa-user"></i>
+              </a>
+            </li>
+            <!-- دکمه تغییر تم -->
+            <li class="nav-item ms-2 ms-lg-0">
+              <button
+                id="theme-toggle-btn"
+                class="btn btn-outline-secondary btn-sm"
+                title="تغییر تم"
+              >
+                <i class="fas fa-moon" id="theme-icon-moon"></i>
+                <i
+                  class="fas fa-sun"
+                  id="theme-icon-sun"
+                  style="display: none"
+                ></i>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#heroCarousel"
+          data-bs-slide-to="0"
+          class="active"
+          aria-current="true"
+          aria-label="اسلاید ۱: تخفیف ویژه پروتئین‌ها"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#heroCarousel"
+          data-bs-slide-to="1"
+          aria-label="اسلاید ۲: جدیدترین مکمل‌های انرژی‌زا"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#heroCarousel"
+          data-bs-slide-to="2"
+          aria-label="اسلاید ۳: ارسال سریع به سراسر کشور"
+        ></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            src="content/croser (6).jpg"
+            class="d-block w-100"
+            alt="بنر تخفیف ویژه مکمل‌های پروتئین در فروشگاه MSH Supplement"
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5>تخفیف ویژه پروتئین‌ها</h5>
+            <p>
+              تا ۲۰٪ تخفیف برای تمامی پروتئین‌های منتخب. فرصت را از دست ندهید!
+            </p>
+            <a
+              href="products.html?category=protein"
+              class="btn btn-warning btn-lg mt-2"
+              >مشاهده پروتئین‌ها</a
+            >
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img
+            src="content/croser (2).jpg"
+            class="d-block w-100"
+            alt="بنر جدیدترین مکمل‌های انرژی‌زا موجود در MSH Supplement"
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5>جدیدترین مکمل‌های انرژی‌زا</h5>
+            <p>با محصولات جدید ما به اهداف ورزشی خود سریع‌تر برسید.</p>
+            <a
+              href="products.html?category=energy"
+              class="btn btn-danger btn-lg mt-2"
+              >اکنون خرید کنید</a
+            >
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img
+            src="content/croser (5).jpg"
+            class="d-block w-100"
+            alt="بنر اعلام ارسال سریع سفارشات به سراسر کشور توسط MSH Supplement"
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5>ارسال سریع به سراسر کشور</h5>
+            <p>سفارشات خود را در کمترین زمان ممکن تحویل بگیرید.</p>
+            <a href="contact.html" class="btn btn-light btn-lg mt-2"
+              >اطلاعات بیشتر</a
+            >
+          </div>
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#heroCarousel"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">قبلی</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#heroCarousel"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">بعدی</span>
+      </button>
+    </div>
+
+    <section class="why-us-section py-5">
+      <div class="container">
+        <h2 class="text-center mb-5 section-title">
+          <span>چرا MSH Supplement؟</span>
+        </h2>
+        <div class="row text-center">
+          <div class="col-md-4 mb-4">
+            <div class="feature-box p-4 shadow-sm rounded bg-white">
+              <i class="fas fa-medal fa-3x text-warning mb-3"></i>
+              <h5 class="fw-bold">کیفیت تضمین‌شده</h5>
+              <p class="text-muted">
+                ارائه محصولات اورجینال از برندهای معتبر جهانی و داخلی.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="feature-box p-4 shadow-sm rounded bg-white">
+              <i class="fas fa-headset fa-3x text-danger mb-3"></i>
+              <h5 class="fw-bold">مشاوره تخصصی</h5>
+              <p class="text-muted">
+                تیم متخصص ما آماده ارائه مشاوره رایگان برای انتخاب بهترین مکمل
+                است.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="feature-box p-4 shadow-sm rounded bg-white">
+              <i class="fas fa-shipping-fast fa-3x text-primary mb-3"></i>
+              <h5 class="fw-bold">ارسال سریع و مطمئن</h5>
+              <p class="text-muted">
+                سفارشات شما در کوتاه‌ترین زمان ممکن به سراسر کشور ارسال می‌شود.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container mt-5 pt-4">
+      <h2 class="text-center mb-5 section-title">
+        <span>محصولات پیشنهادی</span>
+      </h2>
+      <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+          <div class="card product-card h-100">
+            <span
+              class="badge bg-danger position-absolute top-0 start-0 m-2 p-2"
+              >ویژه</span
+            >
+            <div class="product-image-container">
+              <img
+                src="content/whey.jpg"
+                class="card-img-top product-image"
+                alt="پروتئین وی MSH"
+              />
+              <div class="product-overlay">
+                <a
+                  href="product-detail.html?id=1"
+                  class="btn btn-outline-light btn-sm view-details-btn"
+                  ><i class="fas fa-eye me-1"></i> مشاهده جزئیات</a
+                >
+              </div>
+            </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title product-title">
+                <a href="product-detail.html?id=1" class="text-decoration-none">
+                  پروتئین وی MSH</a
+                >
+              </h5>
+              <p class="card-text product-category text-muted small">
+                اپتیموم نوتریشن
+              </p>
+              <div class="mt-auto">
+                <p class="card-text product-price mb-2">۱,۲۰۰,۰۰۰ تومان</p>
+                <button
+                  class="btn btn-primary w-100 add-to-cart-btn"
+                  data-product-name="پروتئین وی گلد استاندارد"
+                >
+                  <i class="fas fa-cart-plus me-1"></i> افزودن به سبد
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+          <div class="card product-card h-100">
+            <div class="product-image-container">
+              <img
+                src="content/ceratin (1).jpg"
+                class="card-img-top product-image"
+                alt="کراتین مونوهیدرات برند MSH"
+              />
+              <div class="product-overlay">
+                <a
+                  href="product-detail.html?id=2"
+                  class="btn btn-outline-light btn-sm view-details-btn"
+                  ><i class="fas fa-eye me-1"></i> مشاهده جزئیات</a
+                >
+              </div>
+            </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title product-title">
+                <a
+                  href="product-detail.html?id=2"
+                  class="text-decoration-none text-dark"
+                  >کراتین مونوهیدرات ام اس اچ
+                </a>
+              </h5>
+              <p class="card-text product-category text-muted small">MSH</p>
+              <div class="mt-auto">
+                <p class="card-text product-price mb-2">۷۵۰,۰۰۰ تومان</p>
+                <button
+                  class="btn btn-primary w-100 add-to-cart-btn"
+                  data-product-name="کراتین مونوهیدرات ام اس اچ"
+                >
+                  <i class="fas fa-cart-plus me-1"></i> افزودن به سبد
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+          <div class="card product-card h-100">
+            <span
+              class="badge bg-success position-absolute top-0 start-0 m-2 p-2"
+              >جدید</span
+            >
+            <div class="product-image-container">
+              <img
+                src="content/bcaa.jpg"
+                class="card-img-top product-image"
+                alt="بی سی ای ای اکستند سایویشن"
+              />
+              <div class="product-overlay">
+                <a
+                  href="product-detail.html?id=3"
+                  class="btn btn-outline-light btn-sm view-details-btn"
+                  ><i class="fas fa-eye me-1"></i> مشاهده جزئیات</a
+                >
+              </div>
+            </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title product-title">
+                <a
+                  href="product-detail.html?id=3"
+                  class="text-decoration-none text-dark"
+                  >بی سی ای ای اکستند سایویشن</a
+                >
+              </h5>
+              <p class="card-text product-category text-muted small">سایویشن</p>
+              <div class="mt-auto">
+                <p class="card-text product-price mb-2">۹۸۰,۰۰۰ تومان</p>
+                <button
+                  class="btn btn-primary w-100 add-to-cart-btn"
+                  data-product-name="بی سی ای ای اکستند سایویشن"
+                >
+                  <i class="fas fa-cart-plus me-1"></i> افزودن به سبد
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+          <div class="card product-card h-100">
+            <div class="product-image-container">
+              <img
+                src="content/mass.jpg"
+                class="card-img-top product-image"
+                alt="گینر سریوس مس اپتیموم نوتریشن"
+              />
+              <div class="product-overlay">
+                <a
+                  href="product-detail.html?id=4"
+                  class="btn btn-outline-light btn-sm view-details-btn"
+                  ><i class="fas fa-eye me-1"></i> مشاهده جزئیات</a
+                >
+              </div>
+            </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title product-title">
+                <a
+                  href="product-detail.html?id=4"
+                  class="text-decoration-none text-dark"
+                  >گینر سریوس مس اپتیموم</a
+                >
+              </h5>
+              <p class="card-text product-category text-muted small">
+                اپتیموم نوتریشن
+              </p>
+              <div class="mt-auto">
+                <p class="card-text product-price mb-2">۱,۸۵۰,۰۰۰ تومان</p>
+                <button
+                  class="btn btn-primary w-100 add-to-cart-btn"
+                  data-product-name="گینر سریوس مس اپتیموم"
+                >
+                  <i class="fas fa-cart-plus me-1"></i> افزودن به سبد
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <a href="products.html" class="btn btn-outline-secondary btn-lg"
+          >مشاهده همه محصولات</a
+        >
+      </div>
+    </div>
+
+    <section class="popular-categories-section py-5 bg-light">
+      <div class="container">
+        <h2 class="text-center mb-5 section-title">
+          <span>دسته‌بندی‌های محبوب</span>
+        </h2>
+        <div class="row">
+          <div class="col-md-4 col-sm-6 mb-4">
+            <a href="products.html?category=whey" class="category-card-link">
+              <div class="card category-card shadow-sm">
+                <img
+                  src="content/whey.jpg"
+                  class="card-img-top"
+                  alt="دسته بندی پروتئین وی"
+                />
+                <div class="card-body text-center">
+                  <h5 class="card-title fw-bold">پروتئین وی</h5>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 col-sm-6 mb-4">
+            <a
+              href="products.html?category=creatine"
+              class="category-card-link"
+            >
+              <div class="card category-card shadow-sm">
+                <img
+                  src="content/ceratin (1).jpg"
+                  class="card-img-top"
+                  alt="دسته بندی کراتین"
+                />
+                <div class="card-body text-center">
+                  <h5 class="card-title fw-bold">کراتین</h5>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4 col-sm-6 mb-4">
+            <a href="products.html?category=gainer" class="category-card-link">
+              <div class="card category-card shadow-sm">
+                <img
+                  src="content/mass.jpg"
+                  class="card-img-top"
+                  alt="دسته بندی گینر"
+                />
+                <div class="card-body text-center">
+                  <h5 class="card-title fw-bold">گینر</h5>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="blog-section py-5">
+      <div class="container">
+        <h2 class="text-center mb-5 section-title">
+          <span>آخرین مقالات وبلاگ</span>
+        </h2>
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <div class="card blog-card shadow-sm h-100">
+              <img
+                src="content/art (1).png"
+                class="card-img-top"
+                alt="مقاله درباره اهمیت پروتئین"
+              />
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title fw-bold">
+                  اهمیت پروتئین در رژیم غذایی ورزشکاران
+                </h5>
+                <p class="card-text text-muted small">
+                  منتشر شده در: ۱۴۰۲/۱۲/۱۰
+                </p>
+                <p class="card-text flex-grow-1">
+                  پروتئین یکی از مهمترین درشت مغذی‌ها برای ساخت و ترمیم عضلات
+                  است. در این مقاله به بررسی...
+                </p>
+                <a
+                  href="#"
+                  class="btn btn-outline-danger btn-sm mt-auto align-self-start"
+                  >ادامه مطلب</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card blog-card shadow-sm h-100">
+              <img
+                src="content/art (1).jpg"
+                class="card-img-top"
+                alt="مقاله راهنمای مصرف کراتین"
+              />
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title fw-bold">
+                  راهنمای کامل مصرف کراتین برای مبتدیان
+                </h5>
+                <p class="card-text text-muted small">
+                  منتشر شده در: ۱۴۰۲/۱۱/۲۵
+                </p>
+                <p class="card-text flex-grow-1">
+                  کراتین یکی از محبوب‌ترین مکمل‌هاست. اما چگونه باید آن را مصرف
+                  کرد؟ این راهنما به شما کمک...
+                </p>
+                <a
+                  href="#"
+                  class="btn btn-outline-danger btn-sm mt-auto align-self-start"
+                  >ادامه مطلب</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card blog-card shadow-sm h-100">
+              <img
+                src="content/art (2).jpg"
+                class="card-img-top"
+                alt="مقاله درباره تغذیه ورزشی"
+              />
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title fw-bold">
+                  ۵ نکته کلیدی در تغذیه ورزشی برای حداکثر کارایی
+                </h5>
+                <p class="card-text text-muted small">
+                  منتشر شده در: ۱۴۰۲/۱۰/۱۵
+                </p>
+                <p class="card-text flex-grow-1">
+                  تغذیه مناسب نقش حیاتی در عملکرد ورزشی دارد. با رعایت این ۵
+                  نکته، به اهداف خود نزدیک‌تر...
+                </p>
+                <a
+                  href="#"
+                  class="btn btn-outline-danger btn-sm mt-auto align-self-start"
+                  >ادامه مطلب</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-4">
+          <a href="#" class="btn btn-secondary btn-lg">مشاهده همه مقالات</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials-section py-5 bg-light">
+      <div class="container">
+        <h2 class="text-center mb-5 section-title">
+          <span>نظرات مشتریان ما</span>
+        </h2>
+        <div
+          id="testimonialCarousel"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div
+                class="testimonial-card p-4 mx-auto"
+                style="max-width: 700px"
+              >
+                <img
+                  src="content/face (1).jpg"
+                  class="rounded-circle mb-3 mx-auto d-block"
+                  alt="تصویر مشتری رضا"
+                />
+                <p class="text-center fst-italic">
+                  "محصولات MSH Supplement واقعاً با کیفیت هستن. پروتئین وی که
+                  گرفتم هم طعمش عالی بود هم خیلی زود نتیجه داد. پشتیبانی هم خیلی
+                  خوب راهنمایی کردن."
+                </p>
+                <h6 class="text-center fw-bold mt-3">رضا احمدی</h6>
+                <p class="text-center text-muted small">ورزشکار بدنسازی</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div
+                class="testimonial-card p-4 mx-auto"
+                style="max-width: 700px"
+              >
+                <img
+                  src="content/face (2).jpg"
+                  class="rounded-circle mb-3 mx-auto d-block"
+                  alt="تصویر مشتری سارا"
+                />
+                <p class="text-center fst-italic">
+                  "از خریدم خیلی راضی‌ام. ارسال سریع بود و بسته‌بندی هم عالی.
+                  کراتین‌شون خیلی خوب جواب داد. حتماً دوباره خرید می‌کنم."
+                </p>
+                <h6 class="text-center fw-bold mt-3">سارا محمدی</h6>
+                <p class="text-center text-muted small">مربی فیتنس</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div
+                class="testimonial-card p-4 mx-auto"
+                style="max-width: 700px"
+              >
+                <img
+                  src="content/face3.jpg"
+                  class="rounded-circle mb-3 mx-auto d-block"
+                  alt="تصویر مشتری علی"
+                />
+                <p class="text-center fst-italic">
+                  "تنوع محصولاتتون خیلی خوبه و قیمت‌ها هم منصفانه است. ممنون از
+                  تیم MSH Supplement برای خدمات خوبشون."
+                </p>
+                <h6 class="text-center fw-bold mt-3">henry cavill</h6>
+                <p class="text-center text-muted small">علاقه‌مند به ورزش</p>
+              </div>
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#testimonialCarousel"
+            data-bs-slide="prev"
+          >
+            <span
+              class="carousel-control-prev-icon"
+              aria-hidden="true"
+              style="filter: invert(1) grayscale(100%)"
+            ></span>
+            <span class="visually-hidden">قبلی</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#testimonialCarousel"
+            data-bs-slide="next"
+          >
+            <span
+              class="carousel-control-next-icon"
+              aria-hidden="true"
+              style="filter: invert(1) grayscale(100%)"
+            ></span>
+            <span class="visually-hidden">بعدی</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <div
+      class="modal fade"
+      id="addedToCartModal"
+      tabindex="-1"
+      aria-labelledby="addedToCartModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-success text-white">
+            <h5 class="modal-title" id="addedToCartModalLabel">
+              <i class="fas fa-check-circle me-2"></i>موفقیت
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="بستن"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>
+              <strong id="modalProductName">محصول انتخاب شده</strong> با موفقیت
+              به سبد خرید شما اضافه شد.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              ادامه خرید
+            </button>
+            <a href="cart.html" class="btn btn-primary">مشاهده سبد خرید</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="bg-dark text-white pt-5 pb-4 mt-5">
+      <!-- دکمه بازگشت به بالا -->
+      <button
+        id="back-to-top-btn"
+        class="btn btn-danger btn-lg"
+        title="بازگشت به بالا"
+      >
+        <i class="fas fa-arrow-up"></i>
+      </button>
+
+      <div class="container text-center text-md-start">
+        <div class="row">
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4 text-warning">
+              <i class="fas fa-gem me-3"></i>MSH Supplement
+            </h6>
+            <p>
+              فروشگاه مکمل های ورزشی MSH Supplement با ارائه با کیفیت ترین و
+              بهترین مکمل های ورزشی در بازار برای شما سلامتی و اندامی زیبا را به
+              ارمغان می آورد.
+            </p>
+          </div>
+
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4 text-warning">محصولات</h6>
+            <p>
+              <a href="products.html?category=protein" class="text-reset"
+                >پروتئین‌ها</a
+              >
+            </p>
+            <p>
+              <a href="products.html?category=creatine" class="text-reset"
+                >کراتین‌ها</a
+              >
+            </p>
+            <p>
+              <a href="products.html?category=gainer" class="text-reset"
+                >گینرها</a
+              >
+            </p>
+            <p>
+              <a href="products.html?category=vitamin" class="text-reset"
+                >ویتامین‌ها</a
+              >
+            </p>
+          </div>
+
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4 text-warning">
+              لینک‌های مفید
+            </h6>
+            <p><a href="login.html" class="text-reset">حساب کاربری</a></p>
+            <p>
+              <a href="order-tracking.html" class="text-reset">پیگیری سفارش</a>
+            </p>
+            <p><a href="about.html" class="text-reset">درباره ما</a></p>
+            <p><a href="faq.html" class="text-reset">سوالات متداول</a></p>
+          </div>
+
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <h6 class="text-uppercase fw-bold mb-4 text-warning">تماس با ما</h6>
+            <p>
+              <i class="fas fa-home me-3"></i> شهرکرد خیابان فردوسی شمالی جنب
+              صدا و سیما
+            </p>
+            <p><i class="fas fa-envelope me-3"></i>mshsupplement@gmail.com</p>
+            <p><i class="fas fa-phone me-3"></i>03832230000</p>
+            <p><i class="fas fa-phone me-3"></i>09935269804</p>
+          </div>
+        </div>
+        <hr class="my-4" />
+        <div
+          class="d-flex justify-content-between align-items-center flex-column flex-md-row"
+        >
+          <div class="text-center text-md-start mb-3 mb-md-0">
+            <p class="mb-0">
+              © ۱۴۰۴ تمامی حقوق برای
+              <a
+                href="index.html"
+                class="text-warning fw-bold text-decoration-none"
+                >MSH Supplement</a
+              >
+              محفوظ است.
+            </p>
+          </div>
+          <div class="text-center text-md-end">
+            <a
+              href="https://wa.me/qr/QBGOGOVJYGB7J1"
+              class="text-white me-3"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="واتساپ MSH Supplement"
+              ><i class="fab fa-whatsapp fa-lg"></i
+            ></a>
+            <a
+              href="https://x.com/mobitmaster?s=35"
+              class="text-white me-3"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="توییتر MSH Supplement"
+              ><i class="fab fa-twitter fa-lg"></i
+            ></a>
+            <a
+              href="https://instagram.com/mshsupplement"
+              class="text-white me-3"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="اینستاگرام MSH Supplement"
+              ><i class="fab fa-instagram fa-lg"></i
+            ></a>
+            <a
+              href="https://t.me/mohamaddshp"
+              class="text-white"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="تلگرام MSH Supplement"
+              ><i class="fab fa-telegram fa-lg"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
