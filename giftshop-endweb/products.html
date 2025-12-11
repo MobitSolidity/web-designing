@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>محصولات | هدیه‌یار</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header__inner">
+      <div class="brand">هدیه‌یار</div>
+      <nav class="nav">
+        <a href="index.html">خانه</a>
+        <a href="products.html" class="is-active">محصولات</a>
+        <a href="#">راهنمای کادو</a>
+        <a href="cart.html">سبد خرید</a>
+      </nav>
+      <div class="header__actions">
+        <input type="search" class="search" placeholder="جستجو: کادو تولد، گل..."></input>
+        <a class="btn btn--primary" href="cart.html">سبد</a>
+      </div>
+      <button class="menu-toggle" aria-label="منو" data-menu-toggle>☰</button>
+    </div>
+    <div class="mobile-menu" data-mobile-menu>
+      <a href="index.html">خانه</a>
+      <a href="products.html" class="is-active">محصولات</a>
+      <a href="#">راهنمای کادو</a>
+      <a href="cart.html">سبد خرید</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container page-hero__inner">
+        <div>
+          <p class="eyebrow">فروشگاه هدیه</p>
+          <h1>کادو مناسب برای هر مناسبت پیدا کن</h1>
+          <p class="lead">فیلتر کن تا سریع‌تر به هدیه دلخواه برسی. ارسال سریع در چهارمحال و بختیاری.</p>
+        </div>
+        <div class="filter-bar">
+          <select>
+            <option>مرتب‌سازی: پیشنهادی</option>
+            <option>پرفروش‌ترین</option>
+            <option>جدیدترین</option>
+            <option>ارزان‌ترین</option>
+            <option>گران‌ترین</option>
+          </select>
+          <button class="btn btn--ghost" data-filter-toggle>فیلترها</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="filters" data-filter-sheet>
+      <div class="filters__header">
+        <h3>فیلتر کادو</h3>
+        <button class="filters__close" data-filter-close aria-label="بستن">×</button>
+      </div>
+      <div class="filters__grid">
+        <label>مناسبت
+          <select>
+            <option>تولد</option>
+            <option>سالگرد</option>
+            <option>ولنتاین</option>
+            <option>یلدا</option>
+          </select>
+        </label>
+        <label>مخاطب
+          <select>
+            <option>برای او</option>
+            <option>برای او (آقا)</option>
+            <option>دوستان</option>
+            <option>والدین</option>
+          </select>
+        </label>
+        <label>بازه قیمت
+          <select>
+            <option>تا ۵۰۰ هزار</option>
+            <option>۵۰۰ تا ۱.۵ میلیون</option>
+            <option>بیش از ۱.۵ میلیون</option>
+          </select>
+        </label>
+        <label>ارسال سریع
+          <select>
+            <option>فرقی ندارد</option>
+            <option>فقط چهارمحال و بختیاری</option>
+          </select>
+        </label>
+      </div>
+      <div class="filters__actions">
+        <button class="btn btn--ghost" data-filter-close>انصراف</button>
+        <button class="btn btn--primary">اعمال فیلتر</button>
+      </div>
+    </section>
+
+    <section class="product-feed">
+      <div class="container">
+        <div class="product-grid">
+          <article class="product-card">
+            <div class="badge badge--bestseller">پرفروش</div>
+            <img src="assets/img/box1.jpg" alt="باکس ولنتاین رز مخملی" loading="lazy">
+            <h3>باکس ولنتاین رز مخملی</h3>
+            <p class="product-card__tagline">کادوی عاشقانه با شکلات دست‌ساز.</p>
+            <div class="product-card__meta">
+              <div class="product-card__price">۲٬۴۵۰٬۰۰۰ تومان</div>
+              <span class="pill">ارسال سریع</span>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="badge badge--new">جدید</div>
+            <img src="assets/img/box2.jpg" alt="باکس شکلات و ماگ" loading="lazy">
+            <h3>باکس شکلات و ماگ</h3>
+            <p class="product-card__tagline">اقتصادی و خوش‌قیمت برای دوستان.</p>
+            <div class="product-card__meta">
+              <div class="product-card__price">۴۹۰٬۰۰۰ تومان</div>
+              <span class="pill">دوستانه</span>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="badge badge--special">ویژه</div>
+            <img src="assets/img/box3.jpg" alt="باکس گل و شمع" loading="lazy">
+            <h3>باکس گل و شمع</h3>
+            <p class="product-card__tagline">برای سالگرد و لحظه‌های دونفره.</p>
+            <div class="product-card__meta">
+              <div class="product-card__price">۱٬۳۵۰٬۰۰۰ تومان</div>
+              <span class="pill">سالگرد</span>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="badge badge--sale">تخفیف</div>
+            <img src="assets/img/box4.jpg" alt="باکس روزمره مهربونی" loading="lazy">
+            <h3>باکس روزمره مهربونی</h3>
+            <p class="product-card__tagline">هدیه ساده برای قدردانی.</p>
+            <div class="product-card__meta">
+              <div class="product-card__price">۳۲۰٬۰۰۰ تومان</div>
+              <span class="pill">اقتصادی</span>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="assets/img/box5.jpg" alt="باکس گل خشک" loading="lazy">
+            <h3>باکس گل خشک + شمع سویا</h3>
+            <p class="product-card__tagline">رمانتیک و ماندگار برای دکور خانه.</p>
+            <div class="product-card__meta">
+              <div class="product-card__price">۸۹۰٬۰۰۰ تومان</div>
+              <span class="pill">دکور خانه</span>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="assets/img/box6.jpg" alt="باکس چای و شیرینی" loading="lazy">
+            <h3>باکس چای و شیرینی</h3>
+            <p class="product-card__tagline">کادوی صمیمی برای عصرهای ایرانی.</p>
+            <div class="product-card__meta">
+              <div class="product-card__price">۶۵۰٬۰۰۰ تومان</div>
+              <span class="pill">صمیمی</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="assistant" data-assistant>
+    <button class="assistant__bubble" data-assistant-toggle>🤖 دستیار هوشمند</button>
+    <div class="assistant__panel">
+      <div class="assistant__header">
+        <div>
+          <p class="eyebrow">پیشنهاد کادو + پشتیبانی</p>
+          <h3 class="assistant__title">دستیار هوشمند هدیه‌یار</h3>
+          <p class="assistant__subtitle">بر اساس مناسبت و بودجه، گزینه‌های مناسب را پیشنهاد می‌کنم.</p>
+        </div>
+        <button class="btn btn--ghost" data-assistant-close>×</button>
+      </div>
+      <div class="assistant__quick">
+        <button data-assistant-action="gift">کمکم کن کادو انتخاب کنم</button>
+        <button data-assistant-action="support">سوال پشتیبانی دارم</button>
+      </div>
+      <div class="assistant__messages" data-assistant-messages>
+        <div class="assistant__msg assistant__msg--bot">سلام! مناسبت، بودجه و شهر مقصد را بگو تا پیشنهاد بدهم.</div>
+      </div>
+      <div class="assistant__input">
+        <input type="text" data-assistant-input placeholder="پیامت را بنویس...">
+        <button data-assistant-send>ارسال</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer__grid">
+      <div>
+        <h3>هدیه‌یار</h3>
+        <p>ارسال سریع، بسته‌بندی شیک و کارت تبریک با متن دلخواه.</p>
+      </div>
+      <div>
+        <h4>دسته‌ها</h4>
+        <ul>
+          <li><a href="products.html">باکس‌های لاکچری</a></li>
+          <li><a href="products.html">کادوهای اقتصادی</a></li>
+          <li><a href="products.html">گل و شکلات</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>پشتیبانی</h4>
+        <ul>
+          <li><a href="#">سؤالات متداول</a></li>
+          <li><a href="mailto:support@giftshop.ir">ایمیل پشتیبانی</a></li>
+          <li><a href="tel:+989100000000">۰۹۱۰ ۰۰۰ ۰۰۰۰</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>اجتماعی</h4>
+        <div class="social">
+          <a href="#">اینستاگرام</a>
+          <a href="#">تلگرام</a>
+          <a href="#">واتساپ</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__meta">© ۱۴۰۳ هدیه‌یار – ارسال سریع در چهارمحال و بختیاری</div>
+  </footer>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
