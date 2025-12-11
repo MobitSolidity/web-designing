@@ -595,54 +595,28 @@ ul.products {
     gap: 1rem;
 }
 
-.pdp-immersive {
-    border: 1px dashed #f0d7d0;
-    border-radius: 16px;
-    padding: 1rem;
-    background: #fff7f2;
-    position: relative;
-}
-
-.pdp-immersive.is-inactive {
-    display: none;
-}
-
-.pdp-immersive__placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-}
-
-.pdp-immersive__title {
-    margin: 0.25rem 0;
-}
-
-.pdp-immersive__text {
-    margin: 0;
-    color: #555;
-    font-size: 0.95rem;
-}
-
-.pdp-immersive__stage {
-    margin-top: 0.75rem;
-    border-radius: 12px;
+.pdp__media {
     background: #fff;
-    min-height: 240px;
-    display: grid;
-    place-items: center;
+    border: 1px solid #f2f2f2;
+    border-radius: 16px;
+    padding: 0.75rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+}
+
+.pdp__media .woocommerce-product-gallery {
+    margin: 0;
+}
+
+.pdp__media .woocommerce-product-gallery__wrapper {
+    border-radius: 12px;
     overflow: hidden;
 }
 
-.pdp-immersive__stage img {
+.pdp__media .woocommerce-product-gallery__image img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-}
-
-.pdp-immersive__model {
-    font-weight: 700;
-    color: #444;
+    object-fit: cover;
+    border-radius: 12px;
 }
 
 .pdp__summary {

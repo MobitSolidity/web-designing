@@ -1,7 +1,7 @@
 <?php
 /**
  * Single product content template
- * Experience-driven PDP with gifting focus and optional 360/3D preview.
+ * Experience-driven PDP with gifting focus.
  *
  * @package Giftshop
  */
@@ -46,19 +46,9 @@ $frames             = array_filter(array_map('trim', preg_split('/\r\n|\r|\n/', 
 
         <div class="pdp__layout">
             <div class="pdp__gallery-block">
-                <div class="pdp-immersive" data-immersive data-frames='<?php echo wp_json_encode($frames); ?>' data-model="<?php echo esc_url($model_meta); ?>">
-                    <div class="pdp-immersive__placeholder">
-                        <div>
-                            <p class="pdp-immersive__eyebrow">نمای ۳۶۰° / ۳D</p>
-                            <h3 class="pdp-immersive__title">نگاهی همه‌جانبه به هدیه</h3>
-                            <p class="pdp-immersive__text">برای محصولاتی که فایل ۳D یا فریم‌های ۳۶۰ دارند، این بخش فعال می‌شود. در غیر اینصورت گالری تصاویر نمایش داده می‌شود.</p>
-                            <button type="button" class="btn btn--primary pdp-immersive__trigger">مشاهده نمای ۳۶۰°</button>
-                        </div>
-                    </div>
-                    <div class="pdp-immersive__stage" aria-live="polite"></div>
+                <div class="pdp__media">
+                    <?php do_action('woocommerce_before_single_product_summary'); ?>
                 </div>
-
-                <?php do_action('woocommerce_before_single_product_summary'); ?>
             </div>
 
             <div class="pdp__summary">
