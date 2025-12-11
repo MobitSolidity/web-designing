@@ -73,7 +73,7 @@ add_action('after_setup_theme', 'giftshop_content_width', 0);
 function giftshop_scripts() {
     // Main stylesheet
     wp_enqueue_style('giftshop-style', get_stylesheet_uri(), array(), '1.0.0');
-    
+
     // Persian font from CDN
     wp_enqueue_style(
         'vazirmatn-font',
@@ -81,7 +81,18 @@ function giftshop_scripts() {
         array(),
         null
     );
-    
+
+    // Product UI interactions (only where needed)
+    if (function_exists('is_woocommerce') && (is_shop() || is_product() || is_product_taxonomy())) {
+        wp_enqueue_script(
+            'giftshop-product-ui',
+            get_template_directory_uri() . '/assets/js/product-ui.js',
+            array(),
+            '1.0.0',
+            true
+        );
+    }
+
     // Comment reply script
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
@@ -134,77 +145,66 @@ add_filter('woocommerce_price_format', function() {
  */
 function giftshop_add_gift_fields() {
     ?>
-    <div class="gift-personalization">
-        <h3>
-            <span>🎁</span>
-            <span>گزینه‌های شخصی‌سازی کادو</span>
-        </h3>
-        
-        <?php wp_nonce_field('giftshop_gift_fields', 'giftshop_gift_nonce'); ?>
-        
-        <div class="gift-field">
-            <label>
-                <input type="checkbox" name="is_gift" id="is_gift" value="yes" checked>
-                این محصول یک کادو است
+    <div class="gift-personalization" data-gift-wrap>
+        <div class="gift-personalization__header">
+            <div>
+                <p class="gift-personalization__eyebrow">هدیه دادن ساده‌تر</p>
+                <h3 class="gift-personalization__title">جزئیات کارت و گیرنده</h3>
+            </div>
+            <label class="gift-personalization__toggle">
+                <input type="checkbox" name="is_gift" id="is_gift" value="yes" checked data-gift-toggle>
+                <span>این سفارش یک کادو است</span>
             </label>
         </div>
-        
-        <div class="gift-field">
-            <label for="gift_recipient_name">نام گیرنده کادو</label>
-            <input 
-                type="text" 
-                name="gift_recipient_name" 
-                id="gift_recipient_name" 
-                placeholder="مثال: مریم"
-                maxlength="50"
-            >
-        </div>
-        
-        <div class="gift-field">
-            <label for="gift_card_message">متن کارت تبریک (حداکثر ۲۰۰ کاراکتر)</label>
-            <textarea 
-                name="gift_card_message" 
-                id="gift_card_message" 
-                placeholder="پیام شما برای گیرنده کادو..."
-                maxlength="200"
-                rows="4"
-            ></textarea>
-            <div class="char-counter">
-                <span id="char-count">0</span> / 200 کاراکتر
+
+        <?php wp_nonce_field('giftshop_gift_fields', 'giftshop_gift_nonce'); ?>
+
+        <div class="gift-personalization__fields" data-gift-fields>
+            <div class="gift-field">
+                <label for="gift_recipient_name">نام گیرنده کادو</label>
+                <input
+                    type="text"
+                    name="gift_recipient_name"
+                    id="gift_recipient_name"
+                    placeholder="مثال: مریم"
+                    maxlength="50"
+                >
+            </div>
+
+            <div class="gift-field">
+                <label for="gift_card_message">متن کارت تبریک (حداکثر ۲۰۰ کاراکتر)</label>
+                <textarea
+                    name="gift_card_message"
+                    id="gift_card_message"
+                    placeholder="پیام شما برای گیرنده کادو..."
+                    maxlength="200"
+                    rows="4"
+                    data-count-target
+                ></textarea>
+                <div class="char-counter" data-char-counter data-char-for="gift_card_message">
+                    ۰ / ۲۰۰ کاراکتر
+                </div>
+            </div>
+
+            <div class="gift-field">
+                <label for="gift_sender_name">امضای فرستنده</label>
+                <input
+                    type="text"
+                    name="gift_sender_name"
+                    id="gift_sender_name"
+                    placeholder="مثال: علی و سارا"
+                    maxlength="50"
+                >
+            </div>
+
+            <div class="gift-field gift-field--inline">
+                <label>
+                    <input type="checkbox" name="hide_price" id="hide_price" value="yes">
+                    قیمت برای گیرنده نمایش داده نشود
+                </label>
             </div>
         </div>
-        
-        <div class="gift-field">
-            <label for="gift_sender_name">امضای فرستنده</label>
-            <input 
-                type="text" 
-                name="gift_sender_name" 
-                id="gift_sender_name" 
-                placeholder="مثال: علی و سارا"
-                maxlength="50"
-            >
-        </div>
-        
-        <div class="gift-field">
-            <label>
-                <input type="checkbox" name="hide_price" id="hide_price" value="yes">
-                قیمت برای گیرنده نمایش داده نشود
-            </label>
-        </div>
     </div>
-    
-    <script>
-    (function() {
-        var textarea = document.getElementById('gift_card_message');
-        var counter = document.getElementById('char-count');
-        
-        if (textarea && counter) {
-            textarea.addEventListener('input', function() {
-                counter.textContent = this.value.length;
-            });
-        }
-    })();
-    </script>
     <?php
 }
 add_action('woocommerce_before_add_to_cart_button', 'giftshop_add_gift_fields');
