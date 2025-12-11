@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fa">
+  <head>
+    <meta charset="UTF-8" />
+    <title>فرم مشاوره مکمل</title>
+    <link rel="stylesheet" href="style2.css" />
+  </head>
+  <body>
+    <form class="advice-form" onsubmit="event.preventDefault(); showAdvice();">
+      <h3>فرم مشاوره انتخاب مکمل</h3>
+
+      <label>هدف شما از مصرف مکمل:</label>
+      <select id="goal" required>
+        <option value="">-- انتخاب کنید --</option>
+        <option>افزایش حجم عضلانی</option>
+        <option>چربی‌سوزی</option>
+        <option>افزایش انرژی و تمرکز</option>
+        <option>رشد قد</option>
+        <option>افزایش وزن</option>
+      </select>
+
+      <label>سطح فعالیت ورزشی شما:</label>
+      <select id="level" required>
+        <option value="">-- انتخاب کنید --</option>
+        <option>مبتدی</option>
+        <option>متوسط</option>
+        <option>حرفه‌ای</option>
+      </select>
+
+      <label>میزان بودجه شما (تومان):</label>
+      <input type="number" id="budget" placeholder="مثلاً 500000" required />
+
+      <label>حساسیت یا محدودیت خاصی دارید؟</label>
+      <input type="text" id="note" placeholder="مثلاً حساسیت به لاکتوز" />
+
+      <button type="submit">دریافت پیشنهاد</button>
+
+      <div id="suggestion" class="suggestion-box"></div>
+    </form>
+
+    <script>
+      function showAdvice() {
+        const goal = document.getElementById("goal").value;
+        const level = document.getElementById("level").value;
+        const budget = document.getElementById("budget").value;
+        const note = document.getElementById("note").value;
+
+        const suggestion = document.getElementById("suggestion");
+        suggestion.style.display = "block";
+        suggestion.innerHTML = `
+        ✅ با توجه به هدف <strong>${goal}</strong> و سطح فعالیت <strong>${level}</strong>، 
+        و بودجه تقریبی <strong>${Number(
+          budget
+        ).toLocaleString()} تومان</strong>،
+        مکمل‌های مناسبی برای شما وجود دارد.<br><br>
+        ${note ? `🔶 توجه به محدودیت: ${note}<br><br>` : ""}
+        ☎️ برای دریافت مشاوره دقیق‌تر، لطفاً با پشتیبانی تماس بگیرید یا از فروشگاه بازدید کنید.
+      `;
+      }
+    </script>
+  </body>
+</html>

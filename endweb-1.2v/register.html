@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ایجاد حساب کاربری جدید در فروشگاه مکمل‌های ورزشی MSH Supplement برای خرید آسان و پیگیری سفارشات."
+    />
+    <title>ثبت‌نام - فروشگاه مکمل‌های ورزشی MSH Supplement</title>
+    <link rel="stylesheet" href="css/bootstrap.rtl.min.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="login-page-body">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">MSH Supplement</a>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html"
+              ><i class="fas fa-store me-1"></i> بازگشت به فروشگاه</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="login-container container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6 col-xl-5">
+          <div class="login-form-wrapper">
+            <div class="login-header text-center mb-4">
+              <img
+                src="content/logo.jpg"
+                alt="لوگو MSH Supplement"
+                class="login-logo mb-3 img-fluid"
+              />
+              <h2 class="fw-bold">ایجاد حساب کاربری جدید</h2>
+              <p class="text-muted">به خانواده MSH Supplement بپیوندید!</p>
+            </div>
+            <form id="registerForm">
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="registerFullName"
+                  placeholder="نام و نام خانوادگی"
+                  required
+                />
+                <label for="registerFullName">نام و نام خانوادگی</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="registerEmail"
+                  placeholder="name@example.com"
+                  required
+                />
+                <label for="registerEmail">آدرس ایمیل</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="registerPassword"
+                  placeholder="رمز عبور"
+                  required
+                  aria-describedby="passwordHelpBlock"
+                />
+                <label for="registerPassword">رمز عبور</label>
+                <div id="passwordHelpBlock" class="form-text small text-muted">
+                  رمز عبور باید حداقل ۸ کاراکتر و شامل حروف و اعداد باشد.
+                </div>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="registerConfirmPassword"
+                  placeholder="تکرار رمز عبور"
+                  required
+                />
+                <label for="registerConfirmPassword">تکرار رمز عبور</label>
+              </div>
+
+              <div class="form-check mb-3">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="agreeTerms"
+                  required
+                />
+                <label class="form-check-label small" for="agreeTerms">
+                  با
+                  <a
+                    href="terms.html"
+                    target="_blank"
+                    class="text-decoration-underline"
+                    >شرایط و قوانین</a
+                  >
+                  استفاده از سایت موافقم.
+                </label>
+              </div>
+
+              <button
+                class="btn btn-primary w-100 btn-lg login-btn"
+                type="submit"
+              >
+                <i class="fas fa-user-plus me-2"></i> ثبت‌نام
+              </button>
+
+              <p class="text-center mt-4 mb-0">
+                قبلاً ثبت‌نام کرده‌اید؟
+                <a href="login.html" class="register-link fw-bold">وارد شوید</a>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-center p-3 mt-auto login-footer">
+      © ۱۴۰۴ تمامی حقوق برای
+      <a href="index.html" class="text-dark fw-bold text-decoration-none"
+        >MSH Supplement</a
+      >
+      محفوظ است.
+    </footer>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      const registerForm = document.getElementById("registerForm");
+      if (registerForm) {
+        registerForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+          const password = document.getElementById("registerPassword").value;
+          const confirmPassword = document.getElementById(
+            "registerConfirmPassword"
+          ).value;
+
+          if (password !== confirmPassword) {
+            alert("رمز عبور و تکرار آن یکسان نیستند.");
+            return;
+          }
+          if (password.length < 8) {
+            alert("رمز عبور باید حداقل ۸ کاراکتر باشد.");
+            return;
+          }
+          // Add more complex validation if needed (e.g., regex for password strength)
+
+          // If all validations pass:
+          alert("ثبت‌نام شما با موفقیت انجام شد! (این یک پیام نمونه است)");
+          // In a real application, you would send data to a server here.
+          // And likely redirect to login page or dashboard.
+          // window.location.href = 'login.html';
+          registerForm.reset();
+        });
+      }
+    </script>
+  </body>
+</html>

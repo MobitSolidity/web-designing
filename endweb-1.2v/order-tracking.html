@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="پیگیری وضعیت سفارشات شما در فروشگاه مکمل‌های ورزشی MSH Supplement."
+    />
+    <title>پیگیری سفارش - فروشگاه MSH Supplement</title>
+    <link rel="stylesheet" href="css/bootstrap.rtl.min.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      #order-status-alert {
+        display: none; /* Hidden by default */
+      }
+    </style>
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm"
+    >
+      <div class="container">
+        <h1 class="navbar-brand fw-bold mb-0 fs-4">
+          <a
+            class="text-decoration-none"
+            href="index.html"
+            style="color: #f1c40f"
+            >MSH Supplement</a
+          >
+        </h1>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">خانه</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="products.html">محصولات</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdownCategoriesOrder"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >دسته‌بندی‌ها</a
+              >
+              <ul
+                class="dropdown-menu"
+                aria-labelledby="navbarDropdownCategoriesOrder"
+              >
+                <li>
+                  <a class="dropdown-item" href="products.html?category=whey"
+                    >پروتئین وی</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="products.html?category=creatine"
+                    >کراتین</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="products.html?category=gainer"
+                    >گینر</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">درباره ما</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">تماس با ما</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="cart.html" title="سبد خرید"
+                ><i class="fas fa-shopping-cart"></i>
+                <span class="badge bg-danger ms-1" id="cart-count">0</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html" title="ورود / ثبت‌نام"
+                ><i class="fas fa-user"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-4">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">خانه</a></li>
+          <li class="breadcrumb-item active" aria-current="page">
+            پیگیری سفارش
+          </li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="container mt-4 mb-5">
+      <h2 class="text-center mb-5 section-title">
+        <span>پیگیری سفارش شما</span>
+      </h2>
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+          <div class="card shadow-sm">
+            <div class="card-body p-4">
+              <p class="text-muted text-center mb-4">
+                برای پیگیری وضعیت سفارش خود، لطفاً شماره سفارش و ایمیل یا شماره
+                تلفنی که هنگام ثبت سفارش وارد کرده‌اید را وارد نمایید.
+              </p>
+              <form id="orderTrackingForm">
+                <div class="mb-3">
+                  <label for="orderNumber" class="form-label"
+                    >شماره سفارش:</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="orderNumber"
+                    placeholder="مثال: MSH123456"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="trackingIdentifier" class="form-label"
+                    >ایمیل یا شماره تلفن:</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="trackingIdentifier"
+                    placeholder="ایمیل یا شماره تلفن شما"
+                    required
+                  />
+                </div>
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-primary btn-lg">
+                    <i class="fas fa-search me-2"></i> پیگیری سفارش
+                  </button>
+                </div>
+              </form>
+              <div
+                id="order-status-alert"
+                class="alert mt-4"
+                role="alert"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="orderDetailsSection" class="mt-5" style="display: none">
+        <h3 class="mb-4">
+          جزئیات سفارش
+          <span id="displayOrderNumber" class="text-primary"></span>
+        </h3>
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <p>
+              <strong>وضعیت فعلی:</strong>
+              <span id="currentOrderStatus" class="badge bg-info"
+                >در حال پردازش</span
+              >
+            </p>
+            <p>
+              <strong>تاریخ ثبت سفارش:</strong>
+              <span id="orderDate">۱۴۰۲/۱۲/۰۱</span>
+            </p>
+            <p>
+              <strong>مبلغ کل:</strong>
+              <span id="orderTotalAmount">۱,۲۰۰,۰۰۰ تومان</span>
+            </p>
+
+            <h5 class="mt-4">محصولات سفارش داده شده:</h5>
+            <ul class="list-group list-group-flush" id="orderedItemsList">
+              <li class="list-group-item">پروتئین وی گلد استاندارد (۱ عدد)</li>
+            </ul>
+
+            <h5 class="mt-4">تاریخچه وضعیت:</h5>
+            <ul class="list-unstyled" id="orderHistoryList">
+              <li>
+                <i class="fas fa-check-circle text-success me-2"></i>سفارش ثبت
+                شد - <small class="text-muted">۱۴۰۲/۱۲/۰۱ ساعت ۱۰:۳۰</small>
+              </li>
+              <li>
+                <i class="fas fa-cogs text-primary me-2"></i>در حال پردازش در
+                انبار - <small class="text-muted">۱۴۰۲/۱۲/۰۱ ساعت ۱۴:۰۰</small>
+              </li>
+            </ul>
+            <p class="mt-3 text-muted small">
+              در صورت داشتن هرگونه سوال، با
+              <a href="contact.html">پشتیبانی مشتریان</a> تماس بگیرید.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="addedToCartModal"
+      tabindex="-1"
+      aria-labelledby="addedToCartModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-success text-white">
+            <h5 class="modal-title" id="addedToCartModalLabel">
+              <i class="fas fa-check-circle me-2"></i>موفقیت
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="بستن"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>
+              <strong id="modalProductName">محصول انتخاب شده</strong> با موفقیت
+              به سبد خرید شما اضافه شد.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              ادامه خرید
+            </button>
+            <a href="cart.html" class="btn btn-primary">مشاهده سبد خرید</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="bg-dark text-white pt-5 pb-4 mt-5">
+      <div class="container text-center text-md-start">
+        <div class="row">
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4 text-warning">
+              <i class="fas fa-gem me-3"></i>MSH Supplement
+            </h6>
+            <p>
+              فروشگاه مکمل های ورزشی MSH Supplement با ارائه با کیفیت ترین و
+              بهترین مکمل های ورزشی در بازار برای شما سلامتی و اندامی زیبا را به
+              ارمغان می آورد.
+            </p>
+          </div>
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4 text-warning">محصولات</h6>
+            <p>
+              <a href="products.html?category=protein" class="text-reset"
+                >پروتئین‌ها</a
+              >
+            </p>
+            <p>
+              <a href="products.html?category=creatine" class="text-reset"
+                >کراتین‌ها</a
+              >
+            </p>
+            <p>
+              <a href="products.html?category=gainer" class="text-reset"
+                >گینرها</a
+              >
+            </p>
+            <p>
+              <a href="products.html?category=vitamin" class="text-reset"
+                >ویتامین‌ها</a
+              >
+            </p>
+          </div>
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4 text-warning">
+              لینک‌های مفید
+            </h6>
+            <p><a href="login.html" class="text-reset">حساب کاربری</a></p>
+            <p>
+              <a href="order-tracking.html" class="text-reset">پیگیری سفارش</a>
+            </p>
+            <p><a href="about.html" class="text-reset">درباره ما</a></p>
+            <p><a href="faq.html" class="text-reset">سوالات متداول</a></p>
+          </div>
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <h6 class="text-uppercase fw-bold mb-4 text-warning">تماس با ما</h6>
+            <p>
+              <i class="fas fa-home me-3"></i> شهرکرد خیابان فردوسی شمالی جنب
+              صدا و سیما
+            </p>
+            <p><i class="fas fa-envelope me-3"></i>mshsupplement@gmail.com</p>
+            <p><i class="fas fa-phone me-3"></i>03832230000</p>
+            <p><i class="fas fa-phone me-3"></i>09935269804</p>
+          </div>
+        </div>
+        <hr class="my-4" />
+        <div
+          class="d-flex justify-content-between align-items-center flex-column flex-md-row"
+        >
+          <div class="text-center text-md-start mb-3 mb-md-0">
+            <p class="mb-0">
+              © ۱۴۰۴ تمامی حقوق برای
+              <a
+                href="index.html"
+                class="text-warning fw-bold text-decoration-none"
+                >MSH Supplement</a
+              >
+              محفوظ است.
+            </p>
+          </div>
+          <div class="text-center text-md-end">
+            <a
+              href="https://wa.me/qr/QBGOGOVJYGB7J1"
+              class="text-white me-3"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="واتساپ MSH Supplement"
+              ><i class="fab fa-whatsapp fa-lg"></i></a
+            ><a
+              href="https://x.com/mobitmaster?s=35"
+              class="text-white me-3"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="توییتر MSH Supplement"
+              ><i class="fab fa-twitter fa-lg"></i></a
+            ><a
+              href="https://instagram.com/mshsupplement"
+              class="text-white me-3"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="اینستاگرام MSH Supplement"
+              ><i class="fab fa-instagram fa-lg"></i></a
+            ><a
+              href="https://t.me/mohamaddshp"
+              class="text-white"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="تلگرام MSH Supplement"
+              ><i class="fab fa-telegram fa-lg"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      document
+        .getElementById("orderTrackingForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const orderNumber = document.getElementById("orderNumber").value;
+          const identifier =
+            document.getElementById("trackingIdentifier").value;
+          const statusAlert = document.getElementById("order-status-alert");
+          const orderDetailsSection = document.getElementById(
+            "orderDetailsSection"
+          );
+
+          // Clear previous status
+          statusAlert.style.display = "none";
+          statusAlert.className = "alert mt-4"; // Reset classes
+          orderDetailsSection.style.display = "none";
+
+          if (!orderNumber || !identifier) {
+            statusAlert.textContent = "لطفاً تمامی فیلدها را پر کنید.";
+            statusAlert.classList.add("alert-danger");
+            statusAlert.style.display = "block";
+            return;
+          }
+
+          // Simulate API call and response
+          // In a real application, you would send this data to a server
+          // and get the actual order status.
+          statusAlert.textContent = "در حال بررسی اطلاعات سفارش...";
+          statusAlert.classList.add("alert-info");
+          statusAlert.style.display = "block";
+
+          setTimeout(() => {
+            // Example: Order found
+            if (
+              orderNumber === "MSH123456" &&
+              (identifier === "test@example.com" ||
+                identifier === "09123456789")
+            ) {
+              statusAlert.style.display = "none"; // Hide the info alert
+              orderDetailsSection.style.display = "block";
+              document.getElementById("displayOrderNumber").textContent =
+                orderNumber;
+              document.getElementById("currentOrderStatus").textContent =
+                "ارسال شده";
+              document.getElementById("currentOrderStatus").className =
+                "badge bg-success"; // Update badge color
+              document.getElementById("orderDate").textContent = "۱۴۰۲/۱۲/۰۵";
+              document.getElementById("orderTotalAmount").textContent =
+                "۲,۵۰۰,۰۰۰ تومان";
+
+              const itemsList = document.getElementById("orderedItemsList");
+              itemsList.innerHTML = `
+                        <li class="list-group-item">پروتئین وی گلد استاندارد (۱ عدد)</li>
+                        <li class="list-group-item">کراتین مونوهیدرات ام اس اچ (۲ عدد)</li>
+                    `;
+              const historyList = document.getElementById("orderHistoryList");
+              historyList.innerHTML = `
+                        <li><i class="fas fa-check-circle text-success me-2"></i>سفارش ثبت شد - <small class="text-muted">۱۴۰۲/۱۲/۰۵ ساعت ۱۱:۰۰</small></li>
+                        <li><i class="fas fa-cogs text-primary me-2"></i>در حال پردازش در انبار - <small class="text-muted">۱۴۰۲/۱۲/۰۵ ساعت ۱۵:۳۰</small></li>
+                        <li><i class="fas fa-truck text-info me-2"></i>ارسال شده به آدرس شما - <small class="text-muted">۱۴۰۲/۱۲/۰۶ ساعت ۱۰:۰۰</small></li>
+                    `;
+            } else if (orderNumber === "MSH789012") {
+              statusAlert.style.display = "none";
+              orderDetailsSection.style.display = "block";
+              document.getElementById("displayOrderNumber").textContent =
+                orderNumber;
+              document.getElementById("currentOrderStatus").textContent =
+                "در حال پردازش";
+              document.getElementById("currentOrderStatus").className =
+                "badge bg-warning text-dark";
+            } else {
+              statusAlert.textContent =
+                "سفارشی با این مشخصات یافت نشد. لطفاً اطلاعات وارد شده را بررسی کنید.";
+              statusAlert.classList.remove("alert-info");
+              statusAlert.classList.add("alert-danger");
+            }
+          }, 2000);
+        });
+    </script>
+  </body>
+</html>
