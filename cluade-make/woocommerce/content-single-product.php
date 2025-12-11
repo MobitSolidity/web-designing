@@ -35,6 +35,9 @@ $has_fast_delivery  = ($shipping_slug && strpos($shipping_slug, 'fast') !== fals
 $is_luxury          = has_term('luxury', 'product_cat', $product_id);
 $is_economic        = has_term('economic', 'product_cat', $product_id) || has_term('budget-friendly', 'product_cat', $product_id);
 $tagline            = has_excerpt($product_id) ? wp_trim_words(get_the_excerpt(), 24, '…') : 'باکسی از احساسات خوب برای کسی که دوستش دارید';
+$frame_meta         = get_post_meta($product_id, '_giftshop_360_frames', true);
+$model_meta         = get_post_meta($product_id, '_giftshop_3d_model', true);
+$frames             = array_filter(array_map('trim', preg_split('/\r\n|\r|\n/', (string) $frame_meta)));
 ?>
 
 <article id="product-<?php the_ID(); ?>" <?php wc_product_class('pdp', $product); ?>>
