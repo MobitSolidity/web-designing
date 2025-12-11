@@ -1,0 +1,325 @@
+/* استایل‌های مخصوص صفحه لاگین */
+.login-page-body {
+    background-color: #eef2f7; /* یک پس‌زمینه ملایم و متفاوت برای صفحه لاگین */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.login-container {
+    flex-grow: 1; /* باعث می‌شود محتوای اصلی، فضای خالی بین نوبار و فوتر را پر کند */
+    display: flex;
+    align-items: center; /* عمودی وسط‌چین */
+    padding-top: 2rem; /* کاهش پدینگ بالا */
+    padding-bottom: 2rem; /* کاهش پدینگ پایین */
+}
+
+.login-form-wrapper {
+    background-color: #ffffff;
+    padding: 30px 40px; /* پدینگ تنظیم شده */
+    border-radius: 15px; /* گوشه‌های گردتر */
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12); /* سایه برجسته‌تر */
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.login-form-wrapper:hover {
+    transform: translateY(-8px); /* کمی حرکت به بالا در هاور */
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.15);
+}
+
+.login-logo {
+    max-width: 120px; /* اندازه مناسب‌تر برای لوگو */
+    height: auto; /* حفظ نسبت ابعاد */
+    border-radius: 8px; /* گردی کمتر برای لوگوهای مربعی یا مستطیلی */
+    /* opacity: 0.95; */ /* معمولا نیازی به opacity برای لوگو نیست */
+    /* border: 3px solid #f1c40f; */ /* حذف بوردر، مگر اینکه بخشی از طراحی باشد */
+    /* padding: 5px; */
+    margin-bottom: 1rem; /* اضافه کردن فاصله پایین لوگو */
+}
+
+.login-header h2 {
+    font-weight: 700;
+    color: #2c3e50; /* رنگ سورمه‌ای */
+    font-size: 1.8rem; /* اندازه فونت عنوان */
+}
+.login-header p {
+    font-size: 0.95rem;
+    color: #6c757d; /* رنگ ملایم‌تر برای متن توضیحی */
+}
+
+/* .form-control استایل‌ها از style.css یا Bootstrap به ارث برده می‌شوند، مگر اینکه نیاز به بازنویسی خاص باشد */
+/* در صورتی که استایل‌های فرم کنترل در style.css عمومی هستند، اینجا نیازی به تکرار نیست */
+.form-control:focus {
+    border-color: #f1c40f; /* رنگ زرد اختصاصی (از style.css) */
+    box-shadow: 0 0 0 0.25rem rgba(241, 196, 15, 0.25); /* همان افکت Bootstrap */
+}
+
+.form-floating > label {
+    padding-right: 1.1rem; /* برای زبان فارسی */
+    font-size: 0.9rem; /* اندازه فونت لیبل */
+    color: #6c757d; /* رنگ ملایم‌تر برای لیبل */
+}
+
+.login-btn {
+    background-color: #e74c3c; /* رنگ قرمز مرجانی (از style.css) */
+    border-color: #e74c3c;
+    padding: 12px;
+    font-weight: 600; /* فونت ضخیم‌تر */
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.login-btn:hover {
+    background-color: #c0392b; /* قرمز تیره‌تر */
+    border-color: #c0392b;
+    transform: translateY(-2px);
+}
+
+.forgot-password-link,
+.register-link {
+    color: #e74c3c; /* رنگ قرمز مرجانی */
+    text-decoration: none;
+    font-size: 0.85rem; /* کمی کوچکتر */
+}
+
+.forgot-password-link:hover,
+.register-link:hover {
+    text-decoration: underline;
+    color: #c0392b;
+}
+
+.or-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #adb5bd; /* خاکستری */
+    font-size: 0.9rem;
+    margin-top: 1.5rem; /* اضافه کردن فاصله */
+    margin-bottom: 1.5rem; /* اضافه کردن فاصله */
+}
+
+.or-divider::before,
+.or-divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #dee2e6; /* خط جداکننده */
+}
+
+.or-divider span {
+    background-color: #ffffff; /* برای اینکه خط از زیر متن "یا" رد نشود */
+    padding: 0 10px;
+}
+
+.or-divider::before {
+    margin-left: .5em; /* فاصله خط از متن در سمت چپ (برای فارسی) */
+}
+
+.or-divider::after {
+    margin-right: .5em; /* فاصله خط از متن در سمت راست (برای فارسی) */
+}
+
+.social-login-btn {
+    border-radius: 8px;
+    padding: 10px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    font-size: 0.9rem;
+}
+.social-login-btn i {
+    font-size: 1.1rem;
+    vertical-align: middle;
+    margin-left: 8px; /* فاصله آیکون از متن برای فارسی */
+}
+
+.social-login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.social-login-btn.btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: white;
+}
+.social-login-btn.btn-outline-primary:hover {
+    background-color: #0d6efd;
+    color: white;
+}
+
+.login-footer {
+    background-color: #f8f9fa; /* هماهنگ با پس زمینه اصلی سایت */
+    color: #6c757d; /* رنگ متن تیره‌تر برای خوانایی بهتر */
+    font-size: 0.9rem;
+    padding: 1.5rem 0; /* پدینگ بیشتر */
+    border-top: 1px solid #dee2e6; /* یک خط جداکننده ظریف */
+}
+.login-footer a {
+    color: #343a40; /* رنگ لینک تیره‌تر */
+}
+.login-footer a:hover {
+    color: #e74c3c; /* رنگ اصلی تم در هاور */
+}
+
+/* استایل‌های مخصوص صفحه لاگین */
+.login-page-body {
+    background-color: #eef2f7; /* یک پس‌زمینه ملایم و متفاوت برای صفحه لاگین */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.login-container {
+    flex-grow: 1; /* باعث می‌شود محتوای اصلی، فضای خالی بین نوبار و فوتر را پر کند */
+    display: flex;
+    align-items: center; /* عمودی وسط‌چین */
+    padding-top: 2rem; /* کاهش پدینگ بالا */
+    padding-bottom: 2rem; /* کاهش پدینگ پایین */
+}
+
+.login-form-wrapper {
+    background-color: #ffffff;
+    padding: 30px 40px; /* پدینگ تنظیم شده */
+    border-radius: 15px; /* گوشه‌های گردتر */
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12); /* سایه برجسته‌تر */
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.login-form-wrapper:hover {
+    transform: translateY(-8px); /* کمی حرکت به بالا در هاور */
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.15);
+}
+
+.login-logo {
+    max-width: 120px; /* اندازه مناسب‌تر برای لوگو */
+    height: auto; /* حفظ نسبت ابعاد */
+    border-radius: 8px; /* گردی کمتر برای لوگوهای مربعی یا مستطیلی */
+    /* opacity: 0.95; */ /* معمولا نیازی به opacity برای لوگو نیست */
+    /* border: 3px solid #f1c40f; */ /* حذف بوردر، مگر اینکه بخشی از طراحی باشد */
+    /* padding: 5px; */
+    margin-bottom: 1rem; /* اضافه کردن فاصله پایین لوگو */
+}
+
+.login-header h2 {
+    font-weight: 700;
+    color: #2c3e50; /* رنگ سورمه‌ای */
+    font-size: 1.8rem; /* اندازه فونت عنوان */
+}
+.login-header p {
+    font-size: 0.95rem;
+    color: #6c757d; /* رنگ ملایم‌تر برای متن توضیحی */
+}
+
+/* .form-control استایل‌ها از style.css یا Bootstrap به ارث برده می‌شوند، مگر اینکه نیاز به بازنویسی خاص باشد */
+/* در صورتی که استایل‌های فرم کنترل در style.css عمومی هستند، اینجا نیازی به تکرار نیست */
+.form-control:focus {
+    border-color: #f1c40f; /* رنگ زرد اختصاصی (از style.css) */
+    box-shadow: 0 0 0 0.25rem rgba(241, 196, 15, 0.25); /* همان افکت Bootstrap */
+}
+
+.form-floating > label {
+    padding-right: 1.1rem; /* برای زبان فارسی */
+    font-size: 0.9rem; /* اندازه فونت لیبل */
+    color: #6c757d; /* رنگ ملایم‌تر برای لیبل */
+}
+
+.login-btn {
+    background-color: #e74c3c; /* رنگ قرمز مرجانی (از style.css) */
+    border-color: #e74c3c;
+    padding: 12px;
+    font-weight: 600; /* فونت ضخیم‌تر */
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.login-btn:hover {
+    background-color: #c0392b; /* قرمز تیره‌تر */
+    border-color: #c0392b;
+    transform: translateY(-2px);
+}
+
+.forgot-password-link,
+.register-link {
+    color: #e74c3c; /* رنگ قرمز مرجانی */
+    text-decoration: none;
+    font-size: 0.85rem; /* کمی کوچکتر */
+}
+
+.forgot-password-link:hover,
+.register-link:hover {
+    text-decoration: underline;
+    color: #c0392b;
+}
+
+.or-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #adb5bd; /* خاکستری */
+    font-size: 0.9rem;
+    margin-top: 1.5rem; /* اضافه کردن فاصله */
+    margin-bottom: 1.5rem; /* اضافه کردن فاصله */
+}
+
+.or-divider::before,
+.or-divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #dee2e6; /* خط جداکننده */
+}
+
+.or-divider span {
+    background-color: #ffffff; /* برای اینکه خط از زیر متن "یا" رد نشود */
+    padding: 0 10px;
+}
+
+.or-divider::before {
+    margin-left: .5em; /* فاصله خط از متن در سمت چپ (برای فارسی) */
+}
+
+.or-divider::after {
+    margin-right: .5em; /* فاصله خط از متن در سمت راست (برای فارسی) */
+}
+
+.social-login-btn {
+    border-radius: 8px;
+    padding: 10px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    font-size: 0.9rem;
+}
+.social-login-btn i {
+    font-size: 1.1rem;
+    vertical-align: middle;
+    margin-left: 8px; /* فاصله آیکون از متن برای فارسی */
+}
+
+.social-login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.social-login-btn.btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: white;
+}
+.social-login-btn.btn-outline-primary:hover {
+    background-color: #0d6efd;
+    color: white;
+}
+
+.login-footer {
+    background-color: #f8f9fa; /* هماهنگ با پس زمینه اصلی سایت */
+    color: #6c757d; /* رنگ متن تیره‌تر برای خوانایی بهتر */
+    font-size: 0.9rem;
+    padding: 1.5rem 0; /* پدینگ بیشتر */
+    border-top: 1px solid #dee2e6; /* یک خط جداکننده ظریف */
+}
+.login-footer a {
+    color: #343a40; /* رنگ لینک تیره‌تر */
+}
+.login-footer a:hover {
+    color: #e74c3c; /* رنگ اصلی تم در هاور */
+}

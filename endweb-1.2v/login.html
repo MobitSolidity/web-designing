@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="وارد حساب کاربری خود در MSH Supplement شوید یا یک حساب جدید ایجاد کنید."
+    />
+    <title>ورود به حساب کاربری - MSH Supplement</title>
+    <link rel="stylesheet" href="css/bootstrap.rtl.min.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="login.css" />
+    <style>
+      #form-messages {
+        display: none;
+        padding: 0.75rem 1.25rem;
+        margin-bottom: 1rem;
+        border: 1px solid transparent;
+        border-radius: 0.25rem;
+      }
+      #form-messages.alert-success {
+        color: #155724;
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+      }
+      #form-messages.alert-danger {
+        color: #721c24;
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+      }
+    </style>
+  </head>
+  <body class="login-page-body">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">MSH Supplement</a>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html"
+              ><i class="fas fa-store me-1"></i> بازگشت به فروشگاه</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="login-container container">
+      <div class="row justify-content-center w-100">
+        <div class="col-11 col-sm-10 col-md-8 col-lg-6 login-form-col">
+          <div class="login-form-wrapper">
+            <div class="login-header text-center mb-4">
+              <img
+                src="content/logo.jpg"
+                alt="لوگو MSH Supplement"
+                class="login-logo mb-3 img-fluid"
+              />
+              <h2 class="fw-bold">ورود به حساب کاربری</h2>
+              <p class="text-muted">خوشحالیم که دوباره شما را می‌بینیم!</p>
+            </div>
+            <div id="form-messages" role="alert"></div>
+            <form id="loginForm">
+              <div class="form-floating mb-3">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="loginEmail"
+                  placeholder="name@example.com"
+                  required
+                  aria-describedby="emailHelp"
+                />
+                <label for="loginEmail">آدرس ایمیل</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="loginPassword"
+                  placeholder="رمز عبور"
+                  required
+                  aria-describedby="passwordHelp"
+                />
+                <label for="loginPassword">رمز عبور</label>
+              </div>
+
+              <div
+                class="d-flex justify-content-between align-items-center mb-3"
+              >
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="rememberMe"
+                  />
+                  <label class="form-check-label" for="rememberMe">
+                    مرا به خاطر بسپار
+                  </label>
+                </div>
+                <a href="forgot-password.html" class="forgot-password-link"
+                  >فراموشی رمز عبور؟</a
+                >
+              </div>
+
+              <button
+                class="btn btn-primary w-100 btn-lg login-btn"
+                type="submit"
+              >
+                <i class="fas fa-sign-in-alt me-2"></i> ورود
+              </button>
+
+              <div class="text-center my-4 or-divider">
+                <span class="px-2 bg-white">یا</span>
+              </div>
+
+              <div class="d-grid gap-2">
+                <button
+                  class="btn btn-outline-danger social-login-btn"
+                  type="button"
+                  id="googleLoginBtn"
+                >
+                  <i class="fab fa-google me-2"></i> ورود با گوگل
+                </button>
+                <button
+                  class="btn btn-outline-info social-login-btn"
+                  type="button"
+                  id="phoneLoginBtn"
+                >
+                  <i class="fas fa-phone-alt me-2"></i> ورود با شماره تلفن
+                </button>
+              </div>
+              <div id="phoneLoginSection" class="mt-3" style="display: none">
+                <div class="form-floating mb-3">
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="loginPhoneNumber"
+                    placeholder="09123456789"
+                  />
+                  <label for="loginPhoneNumber">شماره تلفن همراه</label>
+                </div>
+                <button
+                  class="btn btn-info w-100 login-btn"
+                  type="button"
+                  id="sendOtpBtn"
+                >
+                  ارسال کد تایید
+                </button>
+                <div id="otpSection" class="mt-3" style="display: none">
+                  <div class="form-floating mb-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="loginOtp"
+                      placeholder="کد تایید"
+                    />
+                    <label for="loginOtp">کد تایید</label>
+                  </div>
+                  <button class="btn btn-success w-100 login-btn" type="button">
+                    تایید و ورود
+                  </button>
+                </div>
+              </div>
+
+              <p class="text-center mt-4 mb-0">
+                حساب کاربری ندارید؟
+                <a href="register.html" class="register-link fw-bold"
+                  >همین حالا ثبت‌نام کنید</a
+                >
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-center p-3 mt-auto login-footer">
+      © ۱۴۰۴ تمامی حقوق برای
+      <a href="index.html" class="text-dark fw-bold text-decoration-none"
+        >MSH Supplement</a
+      >
+      محفوظ است.
+    </footer>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      const loginForm = document.getElementById("loginForm");
+      const formMessages = document.getElementById("form-messages");
+      const phoneLoginBtn = document.getElementById("phoneLoginBtn");
+      const phoneLoginSection = document.getElementById("phoneLoginSection");
+      const sendOtpBtn = document.getElementById("sendOtpBtn");
+      const otpSection = document.getElementById("otpSection");
+
+      function showLoginMessage(message, type) {
+        if (formMessages) {
+          formMessages.textContent = message;
+          formMessages.className = ""; // Reset classes
+          formMessages.classList.add("alert-" + type);
+          formMessages.style.display = "block";
+        }
+      }
+
+      if (loginForm) {
+        loginForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+          if (formMessages) formMessages.style.display = "none";
+
+          const email = document.getElementById("loginEmail").value;
+          const password = document.getElementById("loginPassword").value;
+
+          if (!email || !password) {
+            showLoginMessage("لطفاً ایمیل و رمز عبور را وارد کنید.", "danger");
+            return;
+          }
+          // Simulate API call for email/password login
+          showLoginMessage("در حال بررسی اطلاعات... (نمونه)", "info");
+          setTimeout(() => {
+            // Replace with actual login logic
+            if (email === "test@example.com" && password === "password123") {
+              showLoginMessage("ورود با موفقیت انجام شد!", "success");
+              // window.location.href = 'dashboard.html'; // Redirect to a dashboard page
+            } else {
+              showLoginMessage("ایمیل یا رمز عبور نامعتبر است.", "danger");
+            }
+          }, 1500);
+        });
+      }
+
+      if (phoneLoginBtn && phoneLoginSection) {
+        phoneLoginBtn.addEventListener("click", function () {
+          phoneLoginSection.style.display =
+            phoneLoginSection.style.display === "none" ? "block" : "none";
+          if (otpSection) otpSection.style.display = "none"; // Hide OTP section if phone section is toggled
+          if (formMessages) formMessages.style.display = "none";
+        });
+      }
+
+      if (sendOtpBtn && otpSection) {
+        sendOtpBtn.addEventListener("click", function () {
+          const phoneNumber = document.getElementById("loginPhoneNumber").value;
+          if (!phoneNumber || !/^[0][9][0-9]{9}$/.test(phoneNumber)) {
+            showLoginMessage(
+              "لطفاً شماره تلفن معتبر وارد کنید (مثال: 09123456789).",
+              "danger"
+            );
+            return;
+          }
+          // Simulate sending OTP
+          showLoginMessage(
+            "کد تایید به شماره " + phoneNumber + " ارسال شد. (نمونه)",
+            "info"
+          );
+          otpSection.style.display = "block";
+        });
+      }
+      // Add event listener for Google login if needed
+      // const googleLoginBtn = document.getElementById('googleLoginBtn');
+      // if(googleLoginBtn) { googleLoginBtn.addEventListener('click', () => { /* Google login logic */ }); }
+    </script>
+  </body>
+</html>
