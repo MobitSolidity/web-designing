@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>سبد خرید | هدیه‌یار</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header__inner">
+      <div class="brand">هدیه‌یار</div>
+      <nav class="nav">
+        <a href="index.html">خانه</a>
+        <a href="products.html">محصولات</a>
+        <a href="cart.html" class="is-active">سبد خرید</a>
+      </nav>
+      <div class="header__actions">
+        <button class="btn btn--ghost">پشتیبانی</button>
+        <a class="btn btn--primary" href="cart.html">سبد</a>
+      </div>
+      <button class="menu-toggle" aria-label="منو" data-menu-toggle>☰</button>
+    </div>
+    <div class="mobile-menu" data-mobile-menu>
+      <a href="index.html">خانه</a>
+      <a href="products.html">محصولات</a>
+      <a href="cart.html" class="is-active">سبد خرید</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container page-hero__inner">
+        <div>
+          <p class="eyebrow">سبد شما</p>
+          <h1>بررسی سفارش پیش از تسویه</h1>
+          <p class="lead">مراحل بعدی: آدرس گیرنده → روش ارسال → پرداخت امن.</p>
+        </div>
+        <div class="secure">پرداخت امن با درگاه‌های بانکی</div>
+      </div>
+    </section>
+
+    <section class="cart">
+      <div class="container cart__grid">
+        <div class="cart__items">
+          <article class="cart-item">
+            <img src="assets/img/box1.jpg" alt="باکس ولنتاین رز مخملی" loading="lazy">
+            <div>
+              <h3>باکس ولنتاین رز مخملی</h3>
+              <p class="muted">شخصی‌سازی: نام گیرنده مریم | پنهان‌کردن قیمت</p>
+              <div class="cart-item__actions">
+                <span class="price">۲٬۴۵۰٬۰۰۰ تومان</span>
+                <div class="qty">تعداد: ۱</div>
+                <button class="link">حذف</button>
+              </div>
+            </div>
+          </article>
+          <article class="cart-item">
+            <img src="assets/img/box4.jpg" alt="باکس روزمره مهربونی" loading="lazy">
+            <div>
+              <h3>باکس روزمره مهربونی</h3>
+              <p class="muted">پیام کارت: ممنون که کنارمی</p>
+              <div class="cart-item__actions">
+                <span class="price">۳۲۰٬۰۰۰ تومان</span>
+                <div class="qty">تعداد: ۲</div>
+                <button class="link">حذف</button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <aside class="cart__summary">
+          <h3>خلاصه سفارش</h3>
+          <div class="summary-row"><span>جمع جز</span><span>۳٬۰۹۰٬۰۰۰ تومان</span></div>
+          <div class="summary-row"><span>هزینه ارسال</span><span>۲۰۰٬۰۰۰ تومان</span></div>
+          <div class="summary-row"><span>کد تخفیف</span><span class="muted">ندارید</span></div>
+          <div class="summary-row summary-row--total"><span>مبلغ نهایی</span><span>۳٬۲۹۰٬۰۰۰ تومان</span></div>
+          <button class="btn btn--primary btn--full">ادامه به تسویه</button>
+          <p class="muted">آدرس و روش ارسال در مرحله بعدی تکمیل می‌شود.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer__grid">
+      <div>
+        <h3>هدیه‌یار</h3>
+        <p>فروشگاه آنلاین کادو با ارسال سریع و بسته‌بندی شیک از شهرکرد.</p>
+      </div>
+      <div>
+        <h4>دسته‌ها</h4>
+        <ul>
+          <li><a href="products.html">باکس‌های لاکچری</a></li>
+          <li><a href="products.html">کادوهای اقتصادی</a></li>
+          <li><a href="products.html">گل و شکلات</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>پشتیبانی</h4>
+        <ul>
+          <li><a href="#">سؤالات متداول</a></li>
+          <li><a href="mailto:support@giftshop.ir">ایمیل پشتیبانی</a></li>
+          <li><a href="tel:+989100000000">۰۹۱۰ ۰۰۰ ۰۰۰۰</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>اجتماعی</h4>
+        <div class="social">
+          <a href="#">اینستاگرام</a>
+          <a href="#">تلگرام</a>
+          <a href="#">واتساپ</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__meta">© ۱۴۰۳ هدیه‌یار – ارسال سریع در چهارمحال و بختیاری</div>
+  </footer>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
