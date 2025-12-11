@@ -53,4 +53,37 @@
     if (!target) return;
     btn.addEventListener('click', () => target.scrollIntoView({behavior:'smooth', block:'start'}));
   });
+
+  // Lazy-load AI assistant when needed
+  const assistantRoot = doc.querySelector('[data-assistant]');
+  if (assistantRoot) {
+    const bubble = assistantRoot.querySelector('[data-assistant-toggle]');
+    let isLoading = false;
+    const loadAssistant = () => {
+      if (assistantRoot.dataset.assistantLoaded === 'true') return Promise.resolve();
+      if (isLoading) return Promise.resolve();
+      return new Promise((resolve, reject) => {
+        isLoading = true;
+        const script = doc.createElement('script');
+        script.src = 'assets/js/assistant.js';
+        script.defer = true;
+        script.onload = () => {
+          assistantRoot.dataset.assistantLoaded = 'true';
+          isLoading = false;
+          resolve();
+        };
+        script.onerror = (err) => { isLoading = false; reject(err); };
+        doc.body.appendChild(script);
+      });
+    };
+
+    bubble && bubble.addEventListener('click', (e) => {
+      e.preventDefault();
+      loadAssistant().then(() => {
+        assistantRoot.dispatchEvent(new CustomEvent('assistant:toggle'));
+      }).catch(() => {
+        bubble.textContent = 'خطا در بارگذاری دستیار';
+      });
+    });
+  }
 })();

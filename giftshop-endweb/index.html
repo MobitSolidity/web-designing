@@ -106,28 +106,40 @@
             <img src="assets/img/box1.jpg" alt="باکس ولنتاین رز مخملی" loading="lazy">
             <h3>باکس ولنتاین رز مخملی</h3>
             <p class="product-card__tagline">کادوی عاشقانه با شکلات دست‌ساز.</p>
-            <div class="product-card__price">۲٬۴۵۰٬۰۰۰ تومان</div>
+            <div class="product-card__meta">
+              <div class="product-card__price">۲٬۴۵۰٬۰۰۰ تومان</div>
+              <span class="pill">ارسال سریع</span>
+            </div>
           </article>
           <article class="product-card">
             <div class="badge badge--new">جدید</div>
             <img src="assets/img/box2.jpg" alt="باکس شکلات و ماگ" loading="lazy">
             <h3>باکس شکلات و ماگ</h3>
             <p class="product-card__tagline">اقتصادی و خوش‌قیمت برای دوستان.</p>
-            <div class="product-card__price">۴۹۰٬۰۰۰ تومان</div>
+            <div class="product-card__meta">
+              <div class="product-card__price">۴۹۰٬۰۰۰ تومان</div>
+              <span class="pill">ارسال ۲–۴ روز</span>
+            </div>
           </article>
           <article class="product-card">
             <div class="badge badge--special">ویژه</div>
             <img src="assets/img/box3.jpg" alt="باکس گل و شمع" loading="lazy">
             <h3>باکس گل و شمع</h3>
             <p class="product-card__tagline">برای سالگرد و لحظه‌های دونفره.</p>
-            <div class="product-card__price">۱٬۳۵۰٬۰۰۰ تومان</div>
+            <div class="product-card__meta">
+              <div class="product-card__price">۱٬۳۵۰٬۰۰۰ تومان</div>
+              <span class="pill">مناسب سالگرد</span>
+            </div>
           </article>
           <article class="product-card">
             <div class="badge badge--sale">تخفیف</div>
             <img src="assets/img/box4.jpg" alt="باکس روزمره مهربونی" loading="lazy">
             <h3>باکس روزمره مهربونی</h3>
             <p class="product-card__tagline">هدیه ساده برای قدردانی.</p>
-            <div class="product-card__price">۳۲۰٬۰۰۰ تومان</div>
+            <div class="product-card__meta">
+              <div class="product-card__price">۳۲۰٬۰۰۰ تومان</div>
+              <span class="pill">اقتصادی</span>
+            </div>
           </article>
         </div>
       </div>
@@ -167,6 +179,31 @@
       </div>
     </section>
   </main>
+
+  <div class="assistant" data-assistant>
+    <button class="assistant__bubble" data-assistant-toggle>🤖 دستیار هوشمند</button>
+    <div class="assistant__panel">
+      <div class="assistant__header">
+        <div>
+          <p class="eyebrow">پیشنهاد کادو + پشتیبانی</p>
+          <h3 class="assistant__title">دستیار هوشمند هدیه‌یار</h3>
+          <p class="assistant__subtitle">سؤال داری یا می‌خواهی سریع‌تر کادو پیدا کنی؟</p>
+        </div>
+        <button class="btn btn--ghost" data-assistant-close>×</button>
+      </div>
+      <div class="assistant__quick">
+        <button data-assistant-action="gift">کمکم کن کادو انتخاب کنم</button>
+        <button data-assistant-action="support">سوال پشتیبانی دارم</button>
+      </div>
+      <div class="assistant__messages" data-assistant-messages>
+        <div class="assistant__msg assistant__msg--bot">سلام! برای چه مناسبت و چه کسی هدیه می‌خوای؟</div>
+      </div>
+      <div class="assistant__input">
+        <input type="text" data-assistant-input placeholder="پیامت را بنویس...">
+        <button data-assistant-send>ارسال</button>
+      </div>
+    </div>
+  </div>
 
   <footer class="site-footer">
     <div class="container footer__grid">
