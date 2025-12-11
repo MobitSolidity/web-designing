@@ -60,6 +60,32 @@ function giftshop_setup() {
 add_action('after_setup_theme', 'giftshop_setup');
 
 /**
+ * Register Gift Line taxonomy to separate Economic vs Signature products.
+ */
+function giftshop_register_gift_line_taxonomy() {
+    $labels = array(
+        'name'          => 'لاین هدیه',
+        'singular_name' => 'لاین هدیه',
+    );
+
+    $args = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array('slug' => 'gift-line'),
+    );
+
+    register_taxonomy('gift_line', array('product'), $args);
+
+    // Ensure core terms exist for onboarding.
+    wp_insert_term('economic', 'gift_line', array('slug' => 'economic'));
+    wp_insert_term('signature', 'gift_line', array('slug' => 'signature'));
+}
+add_action('init', 'giftshop_register_gift_line_taxonomy');
+
+/**
  * Set content width
  */
 function giftshop_content_width() {
@@ -99,6 +125,20 @@ function giftshop_scripts() {
     }
 }
 add_action('wp_enqueue_scripts', 'giftshop_scripts');
+
+/**
+ * Add lightweight theme interactions (AI stub + gift finder wizard).
+ */
+function giftshop_enqueue_theme_js() {
+    wp_enqueue_script(
+        'giftshop-theme-ui',
+        get_template_directory_uri() . '/assets/js/theme-ui.js',
+        array('jquery'),
+        '1.0.0',
+        true
+    );
+}
+add_action('wp_enqueue_scripts', 'giftshop_enqueue_theme_js');
 
 /**
  * Get cart item count for header
@@ -172,6 +212,22 @@ function giftshop_add_gift_fields() {
             </div>
 
             <div class="gift-field">
+                <label for="gift_occasion">مناسبت</label>
+                <select name="gift_occasion" id="gift_occasion">
+                    <option value="">انتخاب کنید</option>
+                    <option value="birthday">تولد</option>
+                    <option value="anniversary">سالگرد</option>
+                    <option value="newborn">تولد نوزاد</option>
+                    <option value="valentine">ولنتاین</option>
+                    <option value="mother">روز مادر</option>
+                    <option value="father">روز پدر</option>
+                    <option value="religious">مناسبت مذهبی</option>
+                    <option value="other">غیره</option>
+                </select>
+                <p class="gift-field__hint">برای هماهنگی بهتر کارت و بسته‌بندی</p>
+            </div>
+
+            <div class="gift-field">
                 <label for="gift_card_message">متن کارت تبریک (حداکثر ۲۰۰ کاراکتر)</label>
                 <textarea
                     name="gift_card_message"
@@ -227,13 +283,18 @@ function giftshop_validate_gift_fields($passed, $product_id, $quantity) {
             $passed = false;
         }
         
-        if (isset($_POST['gift_card_message']) && 
+        if (isset($_POST['gift_card_message']) &&
             strlen($_POST['gift_card_message']) > 200) {
             wc_add_notice('متن کارت تبریک نباید بیشتر از ۲۰۰ کاراکتر باشد', 'error');
             $passed = false;
         }
-        
-        if (isset($_POST['gift_sender_name']) && 
+
+        if (isset($_POST['gift_occasion']) && strlen($_POST['gift_occasion']) > 80) {
+            wc_add_notice('مناسبت وارد شده معتبر نیست', 'error');
+            $passed = false;
+        }
+
+        if (isset($_POST['gift_sender_name']) &&
             strlen($_POST['gift_sender_name']) > 50) {
             wc_add_notice('امضای فرستنده نباید بیشتر از ۵۰ کاراکتر باشد', 'error');
             $passed = false;
@@ -260,7 +321,11 @@ function giftshop_add_gift_data_to_cart($cart_item_data, $product_id) {
         if (!empty($_POST['gift_recipient_name'])) {
             $cart_item_data['gift_recipient_name'] = sanitize_text_field($_POST['gift_recipient_name']);
         }
-        
+
+        if (!empty($_POST['gift_occasion'])) {
+            $cart_item_data['gift_occasion'] = sanitize_text_field($_POST['gift_occasion']);
+        }
+
         if (!empty($_POST['gift_card_message'])) {
             $cart_item_data['gift_card_message'] = sanitize_textarea_field($_POST['gift_card_message']);
         }
@@ -294,7 +359,14 @@ function giftshop_display_gift_data_in_cart($item_data, $cart_item) {
                 'value' => esc_html($cart_item['gift_recipient_name']),
             );
         }
-        
+
+        if (!empty($cart_item['gift_occasion'])) {
+            $item_data[] = array(
+                'name'  => 'مناسبت',
+                'value' => esc_html($cart_item['gift_occasion']),
+            );
+        }
+
         if (!empty($cart_item['gift_card_message'])) {
             $item_data[] = array(
                 'name'  => 'پیام کارت',
@@ -331,7 +403,11 @@ function giftshop_add_gift_data_to_order($item, $cart_item_key, $values, $order)
         if (!empty($values['gift_recipient_name'])) {
             $item->add_meta_data('نام گیرنده', $values['gift_recipient_name'], true);
         }
-        
+
+        if (!empty($values['gift_occasion'])) {
+            $item->add_meta_data('مناسبت', $values['gift_occasion'], true);
+        }
+
         if (!empty($values['gift_card_message'])) {
             $item->add_meta_data('پیام کارت', $values['gift_card_message'], true);
         }
@@ -355,14 +431,18 @@ add_action('woocommerce_checkout_create_order_line_item', 'giftshop_add_gift_dat
  * Helper function to check if product is in luxury category
  */
 function giftshop_is_luxury_product($product_id) {
-    return has_term('luxury', 'product_cat', $product_id);
+    return has_term('signature', 'gift_line', $product_id)
+        || has_term('gift-line-signature', 'product_cat', $product_id)
+        || has_term('luxury', 'product_cat', $product_id);
 }
 
 /**
  * Helper function to check if product is in economic category
  */
 function giftshop_is_economic_product($product_id) {
-    return has_term('economic', 'product_cat', $product_id);
+    return has_term('economic', 'gift_line', $product_id)
+        || has_term('gift-line-economic', 'product_cat', $product_id)
+        || has_term('economic', 'product_cat', $product_id);
 }
 
 /**
@@ -382,12 +462,33 @@ function giftshop_get_product_line_class($product_id) {
  */
 function giftshop_get_product_line_badge($product_id) {
     if (giftshop_is_luxury_product($product_id)) {
-        return '<span class="product-badge badge-luxury">لاکچری</span>';
+        return '<span class="product-badge badge-luxury">Signature</span>';
     } elseif (giftshop_is_economic_product($product_id)) {
         return '<span class="product-badge badge-economic">اقتصادی</span>';
     }
     return '';
 }
+
+/**
+ * Allow filtering by gift_line via query string on shop/archive.
+ */
+function giftshop_handle_gift_line_filter($q) {
+    if (is_admin() || !$q->is_main_query()) {
+        return;
+    }
+
+    if ((is_shop() || is_product_taxonomy()) && isset($_GET['gift_line']) && !empty($_GET['gift_line'])) {
+        $gift_line = sanitize_text_field(wp_unslash($_GET['gift_line']));
+        $tax_query = (array) $q->get('tax_query');
+        $tax_query[] = array(
+            'taxonomy' => 'gift_line',
+            'field'    => 'slug',
+            'terms'    => $gift_line,
+        );
+        $q->set('tax_query', $tax_query);
+    }
+}
+add_action('pre_get_posts', 'giftshop_handle_gift_line_filter');
 
 /* ============================================================================
    WOOCOMMERCE CUSTOMIZATIONS

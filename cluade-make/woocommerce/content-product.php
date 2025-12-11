@@ -20,14 +20,15 @@ $has_fast_delivery = ($shipping_slug && strpos($shipping_slug, 'fast') !== false
     || has_term('fast-delivery', 'product_tag', $product_id)
     || get_post_meta($product_id, '_giftshop_fast_delivery', true) === 'yes';
 
-$is_luxury   = has_term('luxury', 'product_cat', $product_id);
-$is_economic = has_term('economic', 'product_cat', $product_id) || has_term('budget-friendly', 'product_cat', $product_id);
+$is_luxury   = giftshop_is_luxury_product($product_id);
+$is_economic = giftshop_is_economic_product($product_id);
 $is_new      = (time() - get_post_time('U', true, $product_id)) < 30 * DAY_IN_SECONDS;
 $is_bestseller = (int) $product->get_total_sales() >= 10;
 $is_sale     = $product->is_on_sale();
 
-$tagline = has_excerpt($product_id) ? wp_trim_words(get_the_excerpt(), 16, '…') : 'کادوی مناسب برای لحظات خاص زندگی';
-$delivery_text = $has_fast_delivery ? 'ارسال سریع در چهارمحال و بختیاری' : 'تحویل حدود ۲–۴ روز کاری';
+$tagline_meta = get_post_meta($product_id, 'giftshop_tagline', true);
+$tagline = $tagline_meta ? $tagline_meta : (has_excerpt($product_id) ? wp_trim_words(get_the_excerpt(), 16, '…') : 'کادوی مناسب برای لحظات خاص زندگی');
+$delivery_text = $has_fast_delivery ? 'ارسال سریع در چهارمحال و بختیاری' : 'اگر مقصد خارج از چهارمحال و بختیاری باشد: تحویل ۲–۴ روز کاری';
 ?>
 
 <li <?php wc_product_class('gift-card', $product); ?>>

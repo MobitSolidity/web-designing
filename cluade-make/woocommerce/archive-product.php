@@ -72,30 +72,37 @@ get_header('shop');
         <div class="filter-sheet__body">
             <div class="filter-group">
                 <p class="filter-group__title">مناسبت</p>
-                <div class="filter-group__chips">
-                    <label><input type="radio" name="occasion" value="birthday"> تولد</label>
-                    <label><input type="radio" name="occasion" value="anniversary"> سالگرد</label>
-                    <label><input type="radio" name="occasion" value="thankyou"> تشکر</label>
-                    <label><input type="radio" name="occasion" value="proposal"> عاشقانه</label>
-                </div>
+                <select name="product_cat" class="filter-select">
+                    <option value="">همه مناسبت‌ها</option>
+                    <option value="birthday">تولد</option>
+                    <option value="anniversary">سالگرد</option>
+                    <option value="yalda">یلدا</option>
+                    <option value="nowruz">نوروز</option>
+                    <option value="valentine">ولنتاین</option>
+                    <option value="religious">مذهبی</option>
+                    <option value="mother-day">روز مادر</option>
+                    <option value="father-day">روز پدر</option>
+                </select>
             </div>
             <div class="filter-group">
-                <p class="filter-group__title">برای چه کسی؟</p>
-                <div class="filter-group__chips">
-                    <label><input type="radio" name="recipient" value="her"> برای او</label>
-                    <label><input type="radio" name="recipient" value="him"> برای او (آقا)</label>
-                    <label><input type="radio" name="recipient" value="friend"> دوست</label>
-                    <label><input type="radio" name="recipient" value="parent"> والدین</label>
-                </div>
+                <p class="filter-group__title">گیرنده</p>
+                <select name="product_tag" class="filter-select">
+                    <option value="">همه</option>
+                    <option value="for-her">برای او (خانم)</option>
+                    <option value="for-him">برای او (آقا)</option>
+                    <option value="kid">کودک</option>
+                    <option value="friend">دوست</option>
+                    <option value="coworker">همکار</option>
+                    <option value="parents">والدین</option>
+                </select>
             </div>
             <div class="filter-group">
-                <p class="filter-group__title">نوع هدیه</p>
-                <div class="filter-group__chips">
-                    <label><input type="checkbox" name="type[]" value="box"> باکس هدیه</label>
-                    <label><input type="checkbox" name="type[]" value="flower"> گل</label>
-                    <label><input type="checkbox" name="type[]" value="sweet"> شیرینی و شکلات</label>
-                    <label><input type="checkbox" name="type[]" value="accessory"> اکسسوری</label>
-                </div>
+                <p class="filter-group__title">لاین هدیه</p>
+                <select name="gift_line" class="filter-select">
+                    <option value="">هر دو لاین</option>
+                    <option value="economic">اقتصادی</option>
+                    <option value="signature">Signature</option>
+                </select>
             </div>
             <div class="filter-group">
                 <p class="filter-group__title">بازه قیمت</p>
@@ -105,11 +112,14 @@ get_header('shop');
                 </div>
             </div>
             <div class="filter-group">
-                <p class="filter-group__title">ارسال</p>
-                <label class="filter-group__toggle">
-                    <input type="checkbox" name="fast_delivery" value="yes">
-                    <span>فقط نمایش گزینه‌های «ارسال سریع در چهارمحال و بختیاری»</span>
-                </label>
+                <p class="filter-group__title">مرتب‌سازی</p>
+                <select name="orderby" class="filter-select">
+                    <option value="menu_order">پیشنهادی</option>
+                    <option value="popularity">پرفروش‌ترین</option>
+                    <option value="date">جدیدترین</option>
+                    <option value="price">ارزان‌ترین</option>
+                    <option value="price-desc">گران‌ترین</option>
+                </select>
             </div>
         </div>
         <div class="filter-sheet__footer">
